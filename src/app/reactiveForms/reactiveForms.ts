@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit {
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+@Component({
+  // selector: 'app-navbar',
+  templateUrl: './reactiveForms.html',
+  styleUrls: ['./reactiveForm.css']
+})
+export class ReactiveFormComponent implements OnInit {
   categories = ['Food', 'Shipping', 'Clothing', 'Games &amp; Fitness'];
   servicesForm: FormGroup;
 
   ngOnInit() {
     this.servicesForm = new FormGroup({
-      'username': new FormControl(null, Validators.required),
+      'username': new FormControl(null, [Validators.required, Validators.pattern('ABC')]),
       'details': new FormControl(null, Validators.required),
       'category': new FormControl('Food'),
       'staff': new FormControl(null, Validators.required),
@@ -30,5 +30,4 @@ export class AppComponent implements OnInit {
     console.log(this.servicesForm.value.username);
     this.servicesForm.reset();
   }
-
 }

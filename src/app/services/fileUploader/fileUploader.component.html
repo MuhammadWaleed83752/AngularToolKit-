@@ -1,0 +1,9 @@
+<h3>File Uploader in Angular 5</h3>
+  <div class="form-group">
+    <label for="file">Choose File</label>
+    <!-- _________________________input tag for file Upload_____________ -->
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+</div>
+<button class="btn btn-primary" (click)="uploadFileToActivity()">submit</button>
